@@ -31,7 +31,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
   }
 
   async closeWindow(): Promise<void> {
-    this.win.close();
+    if (!this.isClosed) { this.win.close(); }
     return;
   }
 
