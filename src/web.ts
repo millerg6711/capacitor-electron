@@ -1,16 +1,12 @@
 import { WebPlugin } from '@capacitor/core';
 
 import type { CapacitorElectronMetacodiPlugin } from './definitions';
-// import { CapacitorElectronMetacodiEvents } from './electron-events';
 
 export class CapacitorElectronMetacodiWeb extends WebPlugin implements CapacitorElectronMetacodiPlugin {
-
-  // remote = new CapacitorElectronMetacodiEvents();
   
   constructor() {
     super();
   }
-
 
   async echo(options: { value: string }): Promise<{ value: string }> {
     console.log('ECHO - web', options);

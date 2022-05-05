@@ -1,15 +1,12 @@
 import { PluginListenerHandle } from '@capacitor/core';
 import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron';
-// import EventEmitter from 'events';
-// import type { CapacitorElectronMetacodiEventsType, CapacitorElectronMetacodiPlugin } from '../../src/definitions';
 import type { CapacitorElectronMetacodiPlugin } from '../../src/definitions';
 
 export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugin {
 
   win: BrowserWindow;
   isClosed: boolean = true;
-  // remote = new CapacitorElectronMetacodiEvents();
-
+  
   constructor() { }
   addListener(
     eventName: 'ping',
@@ -44,9 +41,3 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     return { url: contents.getURL(), isClosed: false };
   }
 }
-
-// export class CapacitorElectronMetacodiEvents extends EventEmitter implements CapacitorElectronMetacodiEventsType {
-//   ping(): any {
-//     return 'PING';
-//   }
-// }
