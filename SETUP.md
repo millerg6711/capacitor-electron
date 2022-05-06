@@ -169,4 +169,31 @@ ionic build && npx cap copy @capacitor-community/electron && npx cap sync @capac
 Obrim el projecte i accedim a la definició del plugin per afegir un nou mètode:
 
 
+<br />
+
+## Comprovacions d'auto update
+Si no vole que comprivi una nova actualització i no don l'error al arrancar el compilat `Error: ENOENT: no such file or directory, open /Applications/LogicTaxi/Contents/Resources/app-update.yml`
+
+Hem de modificar: `electron/src/index.ts`
+
+Comentar la linea 
+```typescript
+autoUpdater.checkForUpdatesAndNotify(); 
+```
+
+```typescript
+// Run Application
+(async () => {
+  // Wait for electron app to be ready.
+  await app.whenReady();
+  // Security - Set Content-Security-Policy based on whether or not we are in dev mode.
+  setupContentSecurityPolicy(myCapacitorApp.getCustomURLScheme());
+  // Initialize our app, build windows, and load content.
+  await myCapacitorApp.init();
+  // Check for updates if we are in a packaged app.
+  // autoUpdater.checkForUpdatesAndNotify(); <------------------------------
+})();
+```
+
+Docs: https://stackoverflow.com/questions/67191654/problem-with-app-update-yml-files-is-not-generated-in-electron
 
