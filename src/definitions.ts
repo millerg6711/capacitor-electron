@@ -10,6 +10,9 @@ export interface CapacitorElectronMetacodiPlugin {
   openWindow(options: { url: string, optionsWindow: BrowserWindowConstructorOptions | any }): Promise<any>;
   closeWindow(): Promise<void>;
   getUrl(): Promise<{ url: string, isClosed: boolean }>;
-  /** Set Bat of application */
+  
+  /** 
+   * Set Badge of application 
+   * */
   setBadge(options: { value: number | null }): Promise<void>;
 }
