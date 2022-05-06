@@ -70,6 +70,50 @@ npm i ../capacitor-electron
 }
 ```
 
+Afegim codi per la configuració del projete d'electron
+(https://capacitor-community.github.io/electron/docs/configoptions)
+
+`electron/capacitor.config.ts`
+```typescript
+/// <reference types="@capacitor/splash-screen" />
+
+import { ElectronCapacitorConfig } from '@capacitor-community/electron';
+
+const config: ElectronCapacitorConfig = {
+  appId: 'test.metacodi.com',
+  appName: 'novaApp',
+  bundledWebRuntime: false,
+  webDir: 'www',
+  electron: {
+    // Custom scheme for your app to be served on in the electron window.
+    customUrlScheme: 'capacitor-electron',
+    // Switch on/off a tray icon and menu, which is customizable in the app.
+    trayIconAndMenuEnabled: true,
+    // Switch on/off whether or not a splashscreen will be used.
+    splashScreenEnabled: false,
+    // Custom image name in the electron/assets folder to use as splash image (.gif included)
+    splashScreenImageName: 'splash.png',
+    // Switch on/off if the main window should be hidden until brought to the front by the tray menu, etc.
+    hideMainWindowOnLaunch: false,
+    // Switch on/off whether or not to use deeplinking in your app.
+    deepLinkingEnabled: false,
+    // Custom protocol to be used with deeplinking for your app.
+    deepLinkingCustomProtocol: 'mycapacitorapp',
+  },
+  plugins: {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    SplashScreen: {
+      launchShowDuration: 5000
+    },
+    PushNotifications: {
+      presentationOptions: ["badge", "sound", "alert"],
+    },
+  },
+};
+
+export default config;
+```
+
 Fem un build del projecte abans de generar la carpeta d'electron:
 ```
 ionic build
@@ -118,7 +162,6 @@ Fem un build del projecte i executem l'aplicació d'electron
 ```
 ionic build && npx cap copy @capacitor-community/electron && npx cap sync @capacitor-community/electron && npx cap open @capacitor-community/electron
 ```
-
 
 
 Obrim el projecte i accedim a la definició del plugin per afegir un nou mètode:

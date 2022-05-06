@@ -1,6 +1,6 @@
 {
   "name": "@metacodi/capacitor-electron",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Capacitor metacodi electron plugin for Capacitor v.3",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -45,6 +45,9 @@
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
+  "dependencies": {
+    "electron-windows-badge": "^1.1.0"
+  },
   "devDependencies": {
     "@capacitor/android": "^3.0.0",
     "@capacitor/core": "^3.0.0",
@@ -53,6 +56,7 @@
     "@ionic/eslint-config": "^0.3.0",
     "@ionic/prettier-config": "^1.0.1",
     "@ionic/swiftlint-config": "^1.1.2",
+    "@metacodi/precode": "^1.0.89",
     "electron": "^18.2.0",
     "eslint": "^7.11.0",
     "prettier": "~2.2.0",
@@ -81,7 +85,7 @@
       "src": "electron"
     }
   },
-  "dependencies": {
-    "electron-windows-badge": "^1.1.0"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
