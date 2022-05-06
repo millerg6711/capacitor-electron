@@ -82,6 +82,8 @@ getUrl() => Promise<{ url: string; isClosed: boolean; }>
 setBadge(options: { value: number | null; }) => Promise<void>
 ```
 
+Set Badge of application
+
 | Param         | Type                                    |
 | ------------- | --------------------------------------- |
 | **`options`** | <code>{ value: number \| null; }</code> |
