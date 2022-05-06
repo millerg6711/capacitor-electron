@@ -81,5 +81,7 @@
       "src": "electron"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "electron-windows-badge": "^1.1.0"
+  }
 }
