@@ -8,5 +8,5 @@ CURDIR="$(pwd)"
 
 if [ $FIRST_ARGUMENT == "pub" ] 
 then
-  npx ts-node precode/publish.ts
+  npx ts-node --project precode/tsconfig.json precode/publish.ts
 fi
