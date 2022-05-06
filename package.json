@@ -1,6 +1,6 @@
 {
   "name": "@metacodi/capacitor-electron",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Capacitor metacodi electron plugin for Capacitor v.3",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -11,6 +11,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
+    "electron",
     "MetacodiCapacitorElectron.podspec"
   ],
   "author": "metacodi",
