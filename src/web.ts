@@ -8,11 +8,7 @@ export class CapacitorElectronMetacodiWeb extends WebPlugin implements Capacitor
     super();
   }
 
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO - web', options);
-    return options;
-  }
-
+  
   async openWindow(options: { url: string, optionsWindow: any }): Promise<any>{
     return options;
   }
@@ -22,4 +18,9 @@ export class CapacitorElectronMetacodiWeb extends WebPlugin implements Capacitor
   };
 
   async getUrl(): Promise<{ url: string, isClosed: boolean }> { return { url: 'not implemented', isClosed: true };  }
+
+  async setBadge(options: { value: number | null }): Promise<void> {
+    console.log('not implemented on web', options);
+    return;
+  }
 }

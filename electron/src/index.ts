@@ -1,5 +1,5 @@
 import { PluginListenerHandle } from '@capacitor/core';
-import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron';
+import { BrowserWindow, BrowserWindowConstructorOptions, app } from 'electron';
 import type { CapacitorElectronMetacodiPlugin } from '../../src/definitions';
 
 export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugin {
@@ -14,11 +14,6 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
   ): Promise<PluginListenerHandle> & PluginListenerHandle {
     console.log(eventName, listenerFunc);
     throw new Error('Method not implemented.');
-  }
-
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO - Electron', options);
-    return { value: 'que tal' };
   }
 
   async openWindow(options: { url: string, optionsWindow: BrowserWindowConstructorOptions }): Promise<any> {
@@ -39,5 +34,10 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     if(this.isClosed) { return { url: '', isClosed: true}; } 
     const contents = this.win.webContents;
     return { url: contents.getURL(), isClosed: false };
+  }
+
+  async setBadge(options: { value: number | null }): Promise<void> {
+    app.setBadgeCount(options.value);
+    return;
   }
 }

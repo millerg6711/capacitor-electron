@@ -14,10 +14,10 @@ npx cap sync
 <docgen-index>
 
 * [`addListener('ping', ...)`](#addlistenerping)
-* [`echo(...)`](#echo)
 * [`openWindow(...)`](#openwindow)
 * [`closeWindow()`](#closewindow)
 * [`getUrl()`](#geturl)
+* [`setBadge(...)`](#setbadge)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -37,21 +37,6 @@ addListener(eventName: 'ping', listenerFunc: () => void) => Promise<PluginListen
 | **`listenerFunc`** | <code>() =&gt; void</code> |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
-
---------------------
-
-
-### echo(...)
-
-```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
-```
-
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
 
 --------------------
 
@@ -87,6 +72,19 @@ getUrl() => Promise<{ url: string; isClosed: boolean; }>
 ```
 
 **Returns:** <code>Promise&lt;{ url: string; isClosed: boolean; }&gt;</code>
+
+--------------------
+
+
+### setBadge(...)
+
+```typescript
+setBadge(options: { value: number | null; }) => Promise<void>
+```
+
+| Param         | Type                                    |
+| ------------- | --------------------------------------- |
+| **`options`** | <code>{ value: number \| null; }</code> |
 
 --------------------
 
