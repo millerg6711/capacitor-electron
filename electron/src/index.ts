@@ -16,6 +16,8 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     throw new Error('Method not implemented.');
   }
 
+  async exitApp(): Promise<void>{ app.quit(); };
+
   async openWindow(options: { url: string, optionsWindow: BrowserWindowConstructorOptions }): Promise<any> {
     this.isClosed = false;
     this.win = new BrowserWindow(options.optionsWindow)

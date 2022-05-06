@@ -13,9 +13,9 @@ export class CapacitorElectronMetacodiWeb extends WebPlugin implements Capacitor
     return options;
   }
 
-  async closeWindow(): Promise<void>{
-    return ;
-  };
+  async exitApp(): Promise<void>{ return ; };
+
+  async closeWindow(): Promise<void>{ return ; };
 
   async getUrl(): Promise<{ url: string, isClosed: boolean }> { return { url: 'not implemented', isClosed: true };  }
 

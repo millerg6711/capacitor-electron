@@ -8,6 +8,11 @@ export interface CapacitorElectronMetacodiPlugin {
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
   /**
+   * Exit electron app
+   */
+   exitApp(): Promise<void>;
+
+  /**
    * Create and control browser windows.
    * 
    * Window customization

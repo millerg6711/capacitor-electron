@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`addListener('ping', ...)`](#addlistenerping)
+* [`exitApp()`](#exitapp)
 * [`openWindow(...)`](#openwindow)
 * [`closeWindow()`](#closewindow)
 * [`getUrl()`](#geturl)
@@ -37,6 +38,17 @@ addListener(eventName: 'ping', listenerFunc: () => void) => Promise<PluginListen
 | **`listenerFunc`** | <code>() =&gt; void</code> |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+
+--------------------
+
+
+### exitApp()
+
+```typescript
+exitApp() => Promise<void>
+```
+
+Exit electron app
 
 --------------------
 
