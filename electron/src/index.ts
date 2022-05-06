@@ -39,7 +39,15 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
   }
 
   async setBadge(options: { value: number | null }): Promise<void> {
-    app.setBadgeCount(options.value);
+    if (process.platform === 'win32') {
+      const windows = BrowserWindow.getAllWindows();
+      const myCapacitorApp = windows[0];
+      const contructorBadge = require('electron-windows-badge');
+      const badge = new contructorBadge(myCapacitorApp);
+      badge.update(options.value);
+    } else {
+      app.setBadgeCount(options.value);
+    }
     return;
   }
 }
