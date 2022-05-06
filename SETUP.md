@@ -1,5 +1,7 @@
 # Capacitor Electron Plugin
 
+- Repo: <https://github.com/capacitor-community/electron>
+
 Primer crearem un nou projecte pel plugin de capacitor (https://capacitorjs.com/docs/plugins/creating-plugins)
 ```
 npm init @capacitor/plugin
