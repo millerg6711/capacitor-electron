@@ -34,4 +34,9 @@ export interface CapacitorElectronMetacodiPlugin {
    * Set Badge of application 
    * */
   setBadge(options: { value: number | null }): Promise<void>;
+
+  /**
+   * Show system notification
+   */
+   showNotification(options: { package: string, title: string, message: string }): Promise<void>;
 }

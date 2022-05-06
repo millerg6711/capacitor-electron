@@ -19,6 +19,7 @@ npx cap sync
 * [`closeWindow()`](#closewindow)
 * [`getUrl()`](#geturl)
 * [`setBadge(...)`](#setbadge)
+* [`showNotification(...)`](#shownotification)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -108,6 +109,21 @@ Set Badge of application
 | Param         | Type                                    |
 | ------------- | --------------------------------------- |
 | **`options`** | <code>{ value: number \| null; }</code> |
+
+--------------------
+
+
+### showNotification(...)
+
+```typescript
+showNotification(options: { package: string; title: string; message: string; }) => Promise<void>
+```
+
+Show system notification
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code>{ package: string; title: string; message: string; }</code> |
 
 --------------------
 
