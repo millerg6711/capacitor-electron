@@ -7,10 +7,24 @@ export interface CapacitorElectronMetacodiPlugin {
     listenerFunc: () => void,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
+  /**
+   * Create and control browser windows.
+   * 
+   * Window customization
+   * (BrowserWindow) <https://www.electronjs.org/docs/latest/api/browser-window>
+   */
   openWindow(options: { url: string, optionsWindow: BrowserWindowConstructorOptions | any }): Promise<any>;
+
+  /**
+   * Close window if opened
+   */
   closeWindow(): Promise<void>;
+
+  /**
+   * Get url and if window closed
+   */
   getUrl(): Promise<{ url: string, isClosed: boolean }>;
-  
+
   /** 
    * Set Badge of application 
    * */

@@ -47,6 +47,11 @@ addListener(eventName: 'ping', listenerFunc: () => void) => Promise<PluginListen
 openWindow(options: { url: string; optionsWindow: BrowserWindowConstructorOptions | any; }) => Promise<any>
 ```
 
+Create and control browser windows.
+
+Window customization
+(BrowserWindow) &lt;https://www.electronjs.org/docs/latest/api/browser-window&gt;
+
 | Param         | Type                                              |
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code>{ url: string; optionsWindow: any; }</code> |
@@ -62,6 +67,8 @@ openWindow(options: { url: string; optionsWindow: BrowserWindowConstructorOption
 closeWindow() => Promise<void>
 ```
 
+Close window if opened
+
 --------------------
 
 
@@ -70,6 +77,8 @@ closeWindow() => Promise<void>
 ```typescript
 getUrl() => Promise<{ url: string; isClosed: boolean; }>
 ```
+
+Get url and if window closed
 
 **Returns:** <code>Promise&lt;{ url: string; isClosed: boolean; }&gt;</code>
 
