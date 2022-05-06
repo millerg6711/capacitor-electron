@@ -1,6 +1,6 @@
 # @metacodi/capacitor-electron
 
-cpacitor metacodi electron plugin
+Capacitor electron plugin for Capacitor v.3
 
 ## Install
 
