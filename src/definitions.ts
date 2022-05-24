@@ -13,6 +13,11 @@ export interface CapacitorElectronMetacodiPlugin {
    exitApp(): Promise<void>;
 
   /**
+   * get Text from Clipboard
+   */
+   getTextClipboard(): Promise<string>;
+
+  /**
    * Create and control browser windows.
    * 
    * Window customization

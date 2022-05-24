@@ -1,5 +1,5 @@
 import { PluginListenerHandle } from '@capacitor/core';
-import { BrowserWindow, BrowserWindowConstructorOptions, app, NotificationConstructorOptions, Notification } from 'electron';
+import { BrowserWindow, BrowserWindowConstructorOptions, app, NotificationConstructorOptions, Notification, clipboard } from 'electron';
 import type { CapacitorElectronMetacodiPlugin } from '../../src/definitions';
 
 
@@ -14,16 +14,34 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     listenerFunc: () => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle {
     console.log(eventName, listenerFunc);
+    // return;
     throw new Error('Method not implemented.');
   }
 
   async exitApp(): Promise<void> { app.quit(); };
+
+
+  async getTextClipboard(): Promise<string> {
+    return clipboard.readText(); 
+  }
+
 
   async openWindow(options: { url: string, optionsWindow: BrowserWindowConstructorOptions }): Promise<any> {
     this.isClosed = false;
     this.win = new BrowserWindow(options.optionsWindow)
     await this.win.loadURL(options.url);
     this.win.on('close', () => { this.isClosed = true; });
+
+    this.win.on('focus', () => {
+      const windows = BrowserWindow.getAllWindows();
+      const myCapacitorApp = windows[0];
+      myCapacitorApp.webContents.send('ping');
+    })
+    this.win.on('blur', () => {
+      const windows = BrowserWindow.getAllWindows();
+      const myCapacitorApp = windows[0];
+      myCapacitorApp.webContents.send('ping');
+    })
 
     return null;
   }
