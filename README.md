@@ -15,6 +15,7 @@ npx cap sync
 
 * [`addListener('ping', ...)`](#addlistenerping)
 * [`exitApp()`](#exitapp)
+* [`getTextClipboard()`](#gettextclipboard)
 * [`openWindow(...)`](#openwindow)
 * [`closeWindow()`](#closewindow)
 * [`getUrl()`](#geturl)
@@ -50,6 +51,19 @@ exitApp() => Promise<void>
 ```
 
 Exit electron app
+
+--------------------
+
+
+### getTextClipboard()
+
+```typescript
+getTextClipboard() => Promise<string>
+```
+
+get Text from Clipboard
+
+**Returns:** <code>Promise&lt;string&gt;</code>
 
 --------------------
 

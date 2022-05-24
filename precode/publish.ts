@@ -54,7 +54,7 @@ project.initialize().then(async () => {
 
   Terminal.log(chalk.blueBright(`Repositori publicat correctament!`));
   const pkg = Resource.open('package.json');
-  Terminal.log(chalk.green(`npm install ` + chalk.bold(`@metacodi/binance@${pkg.version}`) + ' --save'));
+  Terminal.log(chalk.green(`npm install ` + chalk.bold(`@metacodi/capacitor-electron@${pkg.version}`) + ' --save'));
 
   Terminal.line();
 });
