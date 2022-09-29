@@ -29,4 +29,11 @@ export class CapacitorElectronMetacodiWeb extends WebPlugin implements Capacitor
     console.log('not implemented on web', options);
     return;
   };
+
+  async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<void> {
+    console.log('not implemented on web', options);
+    return;
+  }
+
+  async stopSound(): Promise<void> { return; };
 }

@@ -1,12 +1,18 @@
-import { PluginListenerHandle } from '@capacitor/core';
-import { BrowserWindow, BrowserWindowConstructorOptions, app, NotificationConstructorOptions, Notification, clipboard } from 'electron';
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-empty-function */
+import type { PluginListenerHandle } from '@capacitor/core';
+import type { BrowserWindowConstructorOptions, NotificationConstructorOptions } from 'electron';
+import { BrowserWindow, app, Notification, clipboard } from 'electron';
+
 import type { CapacitorElectronMetacodiPlugin } from '../../src/definitions';
 
 
 export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugin {
 
   win: BrowserWindow;
-  isClosed: boolean = true;
+  isClosed = true;
+  soundPlay: any;
+  isPlay = false;
 
   constructor() { }
   addListener(
@@ -22,7 +28,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
 
 
   async getTextClipboard(): Promise<string> {
-    return clipboard.readText(); 
+    return clipboard.readText();
   }
 
 
@@ -88,5 +94,36 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     notification.show();
 
     return;
+  };
+
+  async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<void> {
+    const pathApp = app.getPath('exe');
+    const soundplayer = require('sound-player');
+    const path = require('path');
+    let urlMp3 = '';
+    if (process.platform === 'darwin') {
+      urlMp3 = path.join(pathApp, '../../assets/', options.src);
+    } else if (process.platform === 'win32') {
+      urlMp3 = path.join(pathApp, '../assets/', options.src);
+    }
+    // console.log(urlMp3);
+    const optionsSoundplayer = {
+      filename: urlMp3,
+      gain: 10,
+      debug: false,
+    };
+    this.soundPlay = new soundplayer(optionsSoundplayer);
+    this.soundPlay.play();
+    const self = this;
+    this.soundPlay.on('complete', () => self.isPlay = false);
+    this.isPlay = true;
+
+    return;
+  }
+
+  async stopSound(): Promise<void> { 
+    this.isPlay = false;
+    this.soundPlay.stop();
+    return; 
   };
 }

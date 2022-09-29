@@ -1,4 +1,5 @@
 import type { PluginListenerHandle } from '@capacitor/core';
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { BrowserWindowConstructorOptions } from 'electron';
 
 export interface CapacitorElectronMetacodiPlugin {
@@ -44,4 +45,14 @@ export interface CapacitorElectronMetacodiPlugin {
    * Show system notification
    */
    showNotification(options: { package: string, title: string, message: string }): Promise<void>;
+
+  /**
+   * Play Sound
+   */
+   playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<void>;
+
+  /**
+   * Stop Sound
+   */
+   stopSound(): Promise<void>;
 }
