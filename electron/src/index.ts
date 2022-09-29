@@ -97,7 +97,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
   };
 
   async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<any> {
-    const pathApp = app.getPath('exe');
+    const pathApp = app.getAppPath().replace('/app.asar', '');
     const soundplayer = require('sound-player');
     const path = require('path');
     let urlMp3 = '';

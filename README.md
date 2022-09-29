@@ -147,7 +147,7 @@ Show system notification
 ### playSound(...)
 
 ```typescript
-playSound(options: { src: string; loop?: boolean; volume?: number; }) => Promise<void>
+playSound(options: { src: string; loop?: boolean; volume?: number; }) => Promise<any>
 ```
 
 Play Sound
@@ -155,6 +155,8 @@ Play Sound
 | Param         | Type                                                           |
 | ------------- | -------------------------------------------------------------- |
 | **`options`** | <code>{ src: string; loop?: boolean; volume?: number; }</code> |
+
+**Returns:** <code>Promise&lt;any&gt;</code>
 
 --------------------
 
