@@ -106,7 +106,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
       const pathApp = app.getAppPath().replace('/app.asar', '');
       urlMp3 = path.join(pathApp, '../assets/', options.src);
     }
-    console.log('Ruta audio: ', urlMp3);
+    // console.log('Ruta audio: ', urlMp3);
     const optionsSoundplayer = {
       filename: urlMp3,
       gain: options.volume ? options.volume : 50,
