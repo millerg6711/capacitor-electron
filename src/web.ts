@@ -30,7 +30,7 @@ export class CapacitorElectronMetacodiWeb extends WebPlugin implements Capacitor
     return;
   };
 
-  async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<void> {
+  async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<any> {
     console.log('not implemented on web', options);
     return;
   }

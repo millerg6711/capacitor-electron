@@ -49,7 +49,7 @@ export interface CapacitorElectronMetacodiPlugin {
   /**
    * Play Sound
    */
-   playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<void>;
+   playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<any>;
 
   /**
    * Stop Sound

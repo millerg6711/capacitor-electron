@@ -96,7 +96,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     return;
   };
 
-  async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<void> {
+  async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<any> {
     const pathApp = app.getPath('exe');
     const soundplayer = require('sound-player');
     const path = require('path');
@@ -118,7 +118,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     this.soundPlay.on('complete', () => self.isPlay = false);
     this.isPlay = true;
 
-    return;
+    return urlMp3;
   }
 
   async stopSound(): Promise<void> { 
