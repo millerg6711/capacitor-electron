@@ -97,7 +97,6 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
   };
 
   async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<any> {
-    const soundplayer = require('sound-player');
     const path = require('path');
     let urlMp3 = '';
     if (process.platform === 'darwin') {
@@ -113,6 +112,8 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
       gain: options.volume ? options.volume : 50,
       debug: false,
     };
+    window.alert(urlMp3);
+    const soundplayer = require('sound-player');
     this.soundPlay = new soundplayer(optionsSoundplayer);
     this.soundPlay.play();
     const self = this;
