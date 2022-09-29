@@ -103,22 +103,24 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
       const pathApp = app.getPath('exe');
       urlMp3 = path.join(pathApp, '../../assets/', options.src);
     } else if (process.platform === 'win32') {
-      const pathApp = app.getAppPath().replace('/app.asar', '');
+      let pathApp = app.getAppPath().replace('/resources/app.asar', '');
+      pathApp = pathApp.replace('/app.asar', '');
       urlMp3 = path.join(pathApp, '../assets/', options.src);
+      urlMp3 = urlMp3.replace('\\\\','\\');
     }
     // console.log('Ruta audio: ', urlMp3);
-    const optionsSoundplayer = {
-      filename: urlMp3,
-      gain: options.volume ? options.volume : 50,
-      debug: false,
-    };
+    // const optionsSoundplayer = {
+    //   filename: urlMp3,
+    //   gain: options.volume ? options.volume : 50,
+    //   debug: false,
+    // };
 
-    const soundplayer = require('sound-player');
-    this.soundPlay = new soundplayer(optionsSoundplayer);
-    this.soundPlay.play();
-    const self = this;
-    this.soundPlay.on('complete', () => self.isPlay = false);
-    this.isPlay = true;
+    // const soundplayer = require('sound-player');
+    // this.soundPlay = new soundplayer(optionsSoundplayer);
+    // this.soundPlay.play();
+    // const self = this;
+    // this.soundPlay.on('complete', () => self.isPlay = false);
+    // this.isPlay = true;
     return { urlMp3, appExe: app.getPath('exe'), getApp: app.getAppPath() };
 
   }
