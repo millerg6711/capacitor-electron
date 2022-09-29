@@ -21,6 +21,8 @@ npx cap sync
 * [`getUrl()`](#geturl)
 * [`setBadge(...)`](#setbadge)
 * [`showNotification(...)`](#shownotification)
+* [`playSound(...)`](#playsound)
+* [`stopSound()`](#stopsound)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -138,6 +140,32 @@ Show system notification
 | Param         | Type                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code>{ package: string; title: string; message: string; }</code> |
+
+--------------------
+
+
+### playSound(...)
+
+```typescript
+playSound(options: { src: string; loop?: boolean; volume?: number; }) => Promise<void>
+```
+
+Play Sound
+
+| Param         | Type                                                           |
+| ------------- | -------------------------------------------------------------- |
+| **`options`** | <code>{ src: string; loop?: boolean; volume?: number; }</code> |
+
+--------------------
+
+
+### stopSound()
+
+```typescript
+stopSound() => Promise<void>
+```
+
+Stop Sound
 
 --------------------
 

@@ -109,7 +109,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     // console.log(urlMp3);
     const optionsSoundplayer = {
       filename: urlMp3,
-      gain: 10,
+      gain: options.volume ? options.volume : 50,
       debug: false,
     };
     this.soundPlay = new soundplayer(optionsSoundplayer);
