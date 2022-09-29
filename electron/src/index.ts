@@ -106,13 +106,13 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
       const pathApp = app.getAppPath().replace('/app.asar', '');
       urlMp3 = path.join(pathApp, '../assets/', options.src);
     }
-    // console.log(urlMp3);
-    const optionsSoundplayer = {
-      filename: urlMp3,
-      gain: options.volume ? options.volume : 50,
-      debug: false,
-    };
+    console.log(urlMp3);
     return urlMp3;
+    // const optionsSoundplayer = {
+    //   filename: urlMp3,
+    //   gain: options.volume ? options.volume : 50,
+    //   debug: false,
+    // };
     
     // const soundplayer = require('sound-player');
     // this.soundPlay = new soundplayer(optionsSoundplayer);
