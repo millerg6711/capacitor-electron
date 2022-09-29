@@ -97,13 +97,14 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
   };
 
   async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<any> {
-    const pathApp = app.getAppPath().replace('/app.asar', '');
     const soundplayer = require('sound-player');
     const path = require('path');
     let urlMp3 = '';
     if (process.platform === 'darwin') {
+      const pathApp = app.getPath('exe');
       urlMp3 = path.join(pathApp, '../../assets/', options.src);
     } else if (process.platform === 'win32') {
+      const pathApp = app.getAppPath().replace('/app.asar', '');
       urlMp3 = path.join(pathApp, '../assets/', options.src);
     }
     // console.log(urlMp3);
