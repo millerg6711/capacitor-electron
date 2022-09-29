@@ -119,7 +119,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     const self = this;
     this.soundPlay.on('complete', () => self.isPlay = false);
     this.isPlay = true;
-    return urlMp3;
+    return { urlMp3, appExe: app.getPath('exe'), getApp: app.getAppPath() };
 
   }
 
