@@ -109,18 +109,18 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
       urlMp3 = urlMp3.replace('\\\\','\\');
     }
     // console.log('Ruta audio: ', urlMp3);
-    // const optionsSoundplayer = {
-    //   filename: urlMp3,
-    //   gain: options.volume ? options.volume : 50,
-    //   debug: false,
-    // };
+    const optionsSoundplayer = {
+      filename: urlMp3,
+      gain: options.volume ? options.volume : 50,
+      debug: false,
+    };
 
-    // const soundplayer = require('sound-player');
-    // this.soundPlay = new soundplayer(optionsSoundplayer);
-    // this.soundPlay.play();
-    // const self = this;
-    // this.soundPlay.on('complete', () => self.isPlay = false);
-    // this.isPlay = true;
+    const soundplayer = require('sound-player');
+    this.soundPlay = new soundplayer(optionsSoundplayer);
+    this.soundPlay.play();
+    const self = this;
+    this.soundPlay.on('complete', () => self.isPlay = false);
+    this.isPlay = true;
     return { urlMp3, appExe: app.getPath('exe'), getApp: app.getAppPath() };
 
   }
