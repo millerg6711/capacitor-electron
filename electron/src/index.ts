@@ -107,25 +107,25 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
       urlMp3 = path.join(pathApp, '../assets/', options.src);
     }
     console.log(urlMp3);
+    const optionsSoundplayer = {
+      filename: urlMp3,
+      gain: options.volume ? options.volume : 50,
+      debug: false,
+    };
+
+    const soundplayer = require('sound-player');
+    this.soundPlay = new soundplayer(optionsSoundplayer);
+    this.soundPlay.play();
+    const self = this;
+    this.soundPlay.on('complete', () => self.isPlay = false);
+    this.isPlay = true;
     return urlMp3;
-    // const optionsSoundplayer = {
-    //   filename: urlMp3,
-    //   gain: options.volume ? options.volume : 50,
-    //   debug: false,
-    // };
-    
-    // const soundplayer = require('sound-player');
-    // this.soundPlay = new soundplayer(optionsSoundplayer);
-    // this.soundPlay.play();
-    // const self = this;
-    // this.soundPlay.on('complete', () => self.isPlay = false);
-    // this.isPlay = true;
 
   }
 
-  async stopSound(): Promise<void> { 
+  async stopSound(): Promise<void> {
     this.isPlay = false;
     this.soundPlay.stop();
-    return; 
+    return;
   };
 }
