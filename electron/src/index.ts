@@ -76,7 +76,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     return;
   }
 
-  async showNotification(options: { package: string, title: string, message: string }): Promise<void> {
+  async showNotification(options: { package: string, title: string, message: string }): Promise<any> {
 
     const path = require('path');
     if (process.platform === 'win32') { app.setAppUserModelId(options.package); }
@@ -95,7 +95,7 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     // });
     notification.show();
 
-    return;
+    return Promise.resolve(notification);
   };
 
   async playSound(options: { src: string, loop?: boolean, volume?: number }): Promise<any> {

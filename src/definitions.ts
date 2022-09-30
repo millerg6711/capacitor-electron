@@ -44,7 +44,7 @@ export interface CapacitorElectronMetacodiPlugin {
   /**
    * Show system notification
    */
-   showNotification(options: { package: string, title: string, message: string }): Promise<void>;
+  showNotification(options: { package: string, title: string, message: string }): Promise<any>;
 
   /**
    * Play Sound
