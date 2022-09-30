@@ -81,9 +81,11 @@ export class CapacitorElectronMetacodi implements CapacitorElectronMetacodiPlugi
     const path = require('path');
     if (process.platform === 'win32') { app.setAppUserModelId(options.package); }
     const appPath = app.getAppPath().replace('/app.asar', '');
+    const title = process.platform === 'win32' ? (options.title || '').replace(new RegExp('<br[ /]*>'), '\n') : options.title;
+    const message = process.platform === 'win32' ? (options.message || '').replace(new RegExp('<br[ /]*>'), '\n') : options.message;
     const notificationOptions: NotificationConstructorOptions = {
-      title: options.title,
-      body: String(options.message),
+      title: title,
+      body: message,
       icon: path.join(appPath, '../assets/appIcon.png'),
       urgency: 'critical'
     };
