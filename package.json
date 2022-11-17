@@ -1,6 +1,6 @@
 {
   "name": "@metacodi/capacitor-electron",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "Capacitor metacodi electron plugin for Capacitor v.3",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -71,7 +71,7 @@
   },
   "peerDependencies": {
     "@capacitor/core": "^4.5.0",
-    "electron": "^18.2.0"
+    "electron": "^21.3.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
